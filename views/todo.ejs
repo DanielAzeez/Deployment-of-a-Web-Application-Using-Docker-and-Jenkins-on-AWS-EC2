@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <ul>
+        <% todolist.forEach((todo, index) => { %>
+            <li>
+                <%= todo %>
+                <form action="/todo/delete" method="POST" style="display:inline;">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    <form action="/todo/add" method="POST">
+        <input type="text" name="newtodo" placeholder="New Task">
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
